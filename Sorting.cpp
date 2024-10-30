@@ -38,15 +38,54 @@ void bubbleSort(int arr[], int n)
 void insertionSort(int arr[], int size)
 {
     int i = 1;
-    while (int i < size)
+    while (i < size)
     {
-        
+        int j = i - 1;
+        while (j >= 0)
+        {
+            if (arr[j] > arr[j + 1])
+            {
+                swap(arr[j], arr[j + 1]);
+                j = j - 1;
+            }
+            else
+            {
+                break;
+            }
+        }
+        i++;
     }
 }
+
+void selectionSort(int arr[], int size)
+{
+    int i = 0;
+    while (i < size)
+    {
+        int j = i + 1;
+        int bestMinIndex = i;
+        while (j < size)
+        {
+            if (arr[j] < arr[bestMinIndex])
+            {
+                bestMinIndex = j;
+            }
+            j++;
+        }
+        int temp = arr[bestMinIndex];
+        arr[bestMinIndex] = arr[i];
+        arr[i] = temp;
+        i++;
+    }
+}
+
 int main()
 {
     int arr[] = {64, 34, 25, 12, 11, 90, 1};
     printArray(arr, 7);
-    bubbleSort(arr, 7);
+    // bubbleSort(arr, 7);
+    // printArray(arr, 7);
+    cout << "printing insertion sort" << endl;
+    insertionSort(arr, 7);
     printArray(arr, 7);
 }
