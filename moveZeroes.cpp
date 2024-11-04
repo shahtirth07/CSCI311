@@ -48,3 +48,42 @@ void moveZeroesWithoutExtraTime(int arr[], int size)
         }
     }
 }
+
+int generatePivotAndRearrange(int arr[], int low, int high)
+{
+    int randomIndex = rand() % (high - low + 1) + low;
+    int pivot = arr[randomIndex];
+    int i = low;
+    int j = low;
+    int k = high;
+    while (j <= k)
+    {
+        if (arr[j] < pivot)
+        {
+            swap(arr[i], arr[j]);
+            i = i + 1;
+            j = j + 1;
+        }
+        else if (arr[j] > pivot)
+        {
+            swap(arr[j], arr[k]);
+            k = k - 1;
+        }
+        else
+        {
+            j = j + 1;
+        }
+    }
+    return i;
+}
+
+int main()
+{
+    int arr[] = {0, 1, 9, 8, 4, 0, 0, 2, 7, 0, 6, 0, 9};
+    int size = sizeof(arr) / sizeof(arr[0]);
+    moveZeroesWithoutExtraTime(arr, size);
+    for (int i = 0; i < size; i++)
+    {
+        cout << arr[i] << " ";
+    }
+}

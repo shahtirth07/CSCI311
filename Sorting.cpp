@@ -139,6 +139,7 @@ void merge(int arr[], int l, int m, int n)
     }
 }
 
+// main thing is to select the pivot.
 void quickSort(int arr[], int l, int r)
 {
     if (l < r)
