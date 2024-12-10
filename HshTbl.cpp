@@ -48,9 +48,9 @@ public:
         for (int i = 0; i < bucket; i++)
         {
             cout << i << ": ";
-            for (list<int>::iterator it = table[i].begin(); it != table[i].end(); it++)
+            for (auto x : table[i])
             {
-                cout << *it << " ";
+                cout << x << " ";
             }
             cout << endl;
         }
